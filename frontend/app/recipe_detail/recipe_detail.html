@@ -1,9 +1,26 @@
-<h1>{{ recipe.name}}</h1>
+<h1 ng-hide="editing">{{ recipe.name}}</h1>
+<input ng-show="editing"  ng-model="recipe.name">
 
-<P>{{recipe.description}}</P>
+<br>
+<P ng-hide="editing">{{recipe.description}}</P>
+<textarea ng-show="editing" ng-model="recipe.description"></textarea>
 
-<P>{{recipe.directions}}</P>
+<br>
+<P ng-hide="editing">{{recipe.directions}}</P>
+<textarea ng-show="editing" ng-model="recipe.directions"></textarea>
 
-<p>{{recipe.ingredients}}</p>
+<br>
 
-<button class="btn btn-sm btn-danger" ng-click="deleteRecipe()"> Delete Recipe</button>
+
+<ul>
+    <li ng-hide="editing" ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+    <li ng-show="editing"><input ng-repeat="ingredient in recipe.ingredients" ng-model="recipe.name"></li>
+</ul>
+
+
+
+<br>
+<button class="btn btn-sm btn-danger glyphicon glyphicon-trash" ng-click="deleteRecipe()"> Delete </button>
+<button ng-show="editing" class="btn btn-sm btn-success glyphicon glyphicon-floppy-disk" ng-click="saveEditedRecipe()"> Save </button>
+<button ng-show="editing" class="btn btn-sm btn-success glyphicon glyphicon-ban-circle" ng-click="cancelEdit()"> Cancel</button>
+<button ng-hide="editing" class="btn btn-sm btn-info glyphicon glyphicon-pencil" ng-click="editing = !editing"> Edit </button>

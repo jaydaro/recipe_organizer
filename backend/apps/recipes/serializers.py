@@ -27,7 +27,7 @@ class RecipeSerializer(serializers.ModelSerializer):
 
         instance.name = validated_data.get('name', instance.name)
         instance.description = validated_data.get('description', instance.description)
-        instance.directions = validated_data.get('directions', instance.direction)
+        instance.directions = validated_data.get('directions', instance.directions)
 
         ingredients_list = []
 
@@ -35,4 +35,5 @@ class RecipeSerializer(serializers.ModelSerializer):
             ingredient, created = Ingredient.objects.get_or_create(name=ingredient["name"])
             ingredients_list.append(ingredient)
             instance.ingredients = ingredients_list
+            instance.save()
         return instance
