@@ -1,30 +1,204 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+/*.menu {*/
+  /*list-style: none;*/
+  /*border-bottom: 0.1em solid black;*/
+  /*margin-bottom: 2em;*/
+  /*padding: 0 0 0.5em;*/
+/*}*/
+
+/*.menu:before {*/
+  /*content: "[";*/
+/*}*/
+
+/*.menu:after {*/
+  /*content: "]";*/
+/*}*/
+
+/*.menu > li {*/
+  /*display: inline;*/
+/*}*/
+
+/*.menu > li:before {*/
+  /*content: "|";*/
+  /*padding-right: 0.3em;*/
+/*}*/
+
+/*.menu > li:nth-child(1):before {*/
+  /*content: "";*/
+  /*padding: 0;*/
+/*}*/
+
+
+
+
+/***********************************/
+.body {
+    background-image: url('media/subtle_stripes.png');
+    /*background-color: #EFECCA;*/
+    padding-top: 42px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.menu:before {
-  content: "[";
+.banner {
+    background-color: #046380;
+    height: 200px;
+    text-align: center;
+    font-size: 40pt;
+    position: relative;
+
+
 }
 
-.menu:after {
-  content: "]";
+.h3 {
+    text-align: center;
+}
+.container {
+    background-color: #EFECCA;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.container-fluid {
+    position: relative;
+    right: 20px;
+	/*left: 20px;*/
 }
 
-.menu > li {
-  display: inline;
+.outer {
+    border-width: thin;
+}
+.nav {
+    float: right;
+    padding-right: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15pt;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.navbar {
+    background-color: #046380;
+    padding-left: 40px;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.title_med {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
+    background-color: #E6E2AF;
+    padding-left: 20px;
+
+
 }
+.sortable {
+    list-style-type: none;
+	position: relative;
+	left: -20px;
+}
+
+.sortable li {
+    background: #eeeeee;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 3px;
+    padding: 0.4em;
+    font-size: 1em;
+    height: 30px;
+    width: 150px;
+}
+
+.sortable li span {
+    position: absolute;
+    margin-left: -1.3em;
+}
+
+.container {
+    padding-left: 40px;
+}
+
+.inputtext {
+    height: 40px;
+
+}
+
+.editable {}
+	.editable li {
+		position: relative;
+        list-style: none outside none;
+        background-color: whitesmoke;
+        padding-left: 10px;
+
+	}
+
+	.editable del {
+		-webkit-transition: opacity .2s;
+		transition: opacity .2s;
+		opacity: 0;
+		display: block;
+		cursor: pointer;
+		color: #c00;
+		top: 0px;
+		right: 0px;
+		position: absolute;
+		font-style: normal;
+	}
+
+	.editable li:hover del {
+		opacity: 1;
+	}
+
+    	.editable add {
+		-webkit-transition: opacity .2s;
+		transition: opacity .2s;
+		opacity: 1;
+		display: block;
+		cursor: pointer;
+		color: #00A000;
+		top: 0px;
+		left: 0px;
+		position: absolute;
+		font-style: normal;
+	}
+
+	.editable li:hover {
+		opacity: 1;
+        cursor: pointer;
+	}
+
+.search_recipes {
+		position: relative;
+        float: right;
+        clear: right;
+        list-style: none inside none;
+        background-color: whitesmoke;
+        padding-left: 10px;
+}
+
+.container-fluid a {
+    font-size: 20pt;
+    font-style: italic;
+}
+/*.content {*/
+    /*width: 50%;*/
+/*}*/
+
+
+/*#filter {}*/
+	/*#filter button {*/
+		/*color: #fff;*/
+		/*width: 100%;*/
+		/*border: none;*/
+		/*outline: 0;*/
+		/*opacity: .5;*/
+		/*margin: 10px 0 0;*/
+		/*transition: opacity .1s ease;*/
+		/*cursor: pointer;*/
+		/*background: #5F9EDF;*/
+		/*padding: 10px 0;*/
+		/*font-size: 20px;*/
+	/*}*/
+		/*#filter button:hover {*/
+			/*opacity: 1;*/
+		/*}*/
+
+	/*#filter .block__list {*/
+		/*padding-bottom: 0;*/
+	/*}*/
+/*********************************/

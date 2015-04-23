@@ -14,3 +14,5 @@ angular.module('myApp', [
         RestangularProvider.setBaseUrl('http://localhost:8001');
         RestangularProvider.setRequestSuffix('/');
     }]);
+
+

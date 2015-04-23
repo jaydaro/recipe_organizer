@@ -1,6 +1,6 @@
 from rest_framework import generics
-from serializers import RecipeSerializer
-from models import Recipe
+from serializers import RecipeSerializer, IngredientSerializer
+from models import Recipe, Ingredient
 
 
 class RecipeList(generics.ListAPIView):
@@ -15,4 +15,10 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class AddRecipe(generics.CreateAPIView):
     serializer_class = RecipeSerializer
+
+
+class IngredientsList(generics.ListAPIView):
+    serializer_class = IngredientSerializer
+    queryset = Ingredient.objects.all()
+
 

@@ -1,20 +1,44 @@
-<input type="text" ng-model="recipe.name" placeholder="Recipe Name">
+<div class="">
 
-<br>
-<textarea ng-model="recipe.directions" placeholder="Recipe Directions"></textarea>
+    <div class="col-sm-4">
+        <div class="title_med">Add A New Recipe</div>
+        <p></p>
+            <p><input class="inputtext" type="text" ng-model="recipe.name" placeholder="Recipe Name"></p>
 
-<br>
-<textarea ng-model="recipe.description" placeholder="Recipe Description"></textarea>
+            <p><textarea class="inputtext" ng-model="recipe.directions" placeholder="Recipe Directions"></textarea></p>
 
-<br>
-<input placeholder="Ingredient" ng-model="ingredientName">
+            <p><textarea class="inputtext" ng-model="recipe.description" placeholder="Recipe Description"></textarea></p>
+            <button ng-click="addRecipe()">Save Recipe</button>
 
-<br>
-<button ng-click="addIngredientToRecipe(ingredientName)"> Add Ingredient to Recipe</button>
-
-<p>Ingredients:</p>
-<ol>
-    <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
-</ol>
-<br>
-<button ng-click="addRecipe()">Save Recipe</button>
+        <!--<button class="btn btn-sm btn-success glyphicon glyphicon-plus" ng-click="addIngredientToRecipe(ingredientName)"></button>-->
+    </div>
+    <div>
+        <div class="col-md-4">
+            <div>
+                <div class="title_med">Ingredients</div>
+                   <p>
+                    <form ng-submit="addIngredientToRecipe(ingredientName)">
+                        <input class="inputtext" placeholder="Ingredient" ng-model="ingredientName">
+                    </form>
+                    </p>
+                <ul class="editable">
+                    <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}
+                        <del ng-click="removeIngredient($index)">✖</del>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="col-md-4" id="filter">
+            <div class="title_med"><p>Ingredient List</p></div>
+            <ul class="editable">
+                    <li class="hvr-float" ng-click="addIngredientToRecipe(ingredient.name)" ng-repeat="ingredient in ingredients "> {{ ingredient.name }}
+                        <!--<add class="fa fa-check" ng-click="addIngredientToRecipe(ingredient.name)"></add>-->
+                    </li>
+                </ul>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

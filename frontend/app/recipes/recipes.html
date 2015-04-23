@@ -1,7 +1,33 @@
 
-<ul>
-    <li ng-repeat="recipe in recipes"><a href="#/recipes/{{recipe.id}}">{{recipe.name}}</a></li>
-</ul>
 
-<p></p>
-<!-- <button class="btn btn-sm btn-danger" ng-click="addRecipe()">Add Recipe</button> -->
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-3" ng-repeat="recipe in recipes">
+                <h3 class="h3" ><a href="#/recipes/{{recipe.id}}" >{{recipe.name}}</a></h3>
+                <img width="200"
+                class="img-responsive"
+                ng-src="{{ recipe.photo }}">
+            </div>
+    </div>
+</div>
+
+
+<!--<div ng-repeat="recipe in recipes | filter:searchText">-->
+    <!--<p><a href="#/recipes/{{ recipe.id }}">{{ recipe.name }}</a></p>-->
+    <!--<img width="200"-->
+         <!--class="img-responsive"-->
+         <!--ng-src="{{ recipe.photo }}">-->
+<!--</div>-->
+
+
+
+
+<p>
+  This is the most minimal example of Dropzone. The upload in this example
+  doesn't work, because there is no actual server to handle the file upload.
+</p>
+
+<!-- Change /upload-target to your upload address -->
+<form action="/media/" class="dropzone">
+    <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+</form>
