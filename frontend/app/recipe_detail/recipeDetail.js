@@ -43,8 +43,8 @@ angular.module('myApp.recipeDetail', ['ngRoute'])
 
         $scope.deleteRecipe = function () {
             var confirmation = vex.dialog.confirm
-                    message: 'Are you sure that you want to delete this recipe? This cannot be undone.'
-                    return (value)
+            message: 'Are you sure that you want to delete this recipe? This cannot be undone.'
+            return (value)
 
             if (confirmation) {
                 Restangular.one('recipes', $scope.recipeId).customDELETE().then(function () {
@@ -67,14 +67,16 @@ angular.module('myApp.recipeDetail', ['ngRoute'])
                 var ingredient = {name: ingredientName};
                 $scope.recipe.ingredients.push(ingredient);
                 $scope.ingredientName = null;
-            };
+            }
+            ;
         };
+
         $scope.removeIngredient = function (index) {
-        $scope.recipe.ingredients.splice(index, 1);
+            $scope.recipe.ingredients.splice(index, 1);
         }
 
         $scope.searchIngredients = function () {
+        };
 
-        }
 
     }]);
