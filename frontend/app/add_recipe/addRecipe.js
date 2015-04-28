@@ -10,40 +10,38 @@ angular.module('myApp.addRecipe', ['ngRoute'])
     }])
 
     .controller('AddRecipeCtrl', ['$scope', '$route', 'Restangular', function ($scope, $route, Restangular) {
+
+
         $scope.recipe = {
             ingredients: []
         };
+
 
         Restangular.all('ingredients').getList().then(function (ingredients) {
             $scope.ingredients = ingredients;
         });
 
-        //$scope.addIngredientToRecipe = function(ingredientName) {
-        //     if (ingredientName == null) {
-        //        $scope.ingredientName = null;
-        //    }
-        //
-        //    else {
-        //        var ingredient = {name: ingredientName};
-        //        $scope.recipe.ingredients.push(ingredient);
-        //        $scope.ingredientName = null;
-        //    };
-        //
-        //};
-
-        $scope.addIngredientToRecipe = function(ingredientName) {
-             if (ingredientName != null) {
+        $scope.addIngredientToRecipe = function (ingredientName) {
+            if (ingredientName != null) {
                 var ingredient = {name: ingredientName};
                 $scope.recipe.ingredients.push(ingredient);
                 $scope.ingredientName = null;
             }
         };
 
+        $scope.addPhotoToRecipe = function (recipePhoto) {
+            if (recipePhoto != null) {
+                var photo = {name: recipePhoto};
+                $scope.recipe.photo.push(photo);
+                $scope.recipePhoto = null;
+            }
+        };
+
         $scope.addRecipe = function () {
             Restangular.all('add_recipe').customPOST($scope.recipe).then(function (recipe) {
-                toastr.success("Your recipe was successfully created! The recipe id is " + recipe.id);
-                $route.reload();
-                //$scope.recipe = {}
+                    toastr.success("Your recipe was successfully created! The recipe id is " + recipe.id);
+                    $route.reload();
+                    //$scope.recipe = {}
 
                 },
                 function () {
@@ -53,13 +51,12 @@ angular.module('myApp.addRecipe', ['ngRoute'])
         };
 
         $scope.removeIngredient = function (index) {
-                $scope.recipe.ingredients.splice(index, 1);
-        }
+            $scope.recipe.ingredients.splice(index, 1);
+        };
 
         $scope.addIngredientFromList = function () {
-        //    need to figure logic to grey out or remove ingredients already in recipe
-        }
-
+            //    need to figure logic to grey out or remove ingredients already in recipe
+        };
 
 
     }]);
