@@ -3,12 +3,35 @@
     <div class="col-sm-4">
         <div class="title_med">Add A New Recipe</div>
         <p></p>
-            <p><input class="inputtext" type="text" ng-model="recipe.name" placeholder="Recipe Name"></p>
 
-            <p><textarea class="inputtext" ng-model="recipe.directions" placeholder="Recipe Directions"></textarea></p>
+        <!--<div>-->
+        <!--<div>-->
+        <!--<p>select an image</p>-->
+        <!--<input type="file" uploader="uploader"/><br/>-->
+        <!--<ul>-->
+        <!--<li ng-repeat="item in uploader.queue">-->
+        <!--Name: <span ng-bind="item.file.name"></span><br/>-->
+        <!--<button ng-click="item.upload()">upload</button>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div ng-show="uploader.isHTML5">-->
+        <!--<div class="well my-drop-zone" nv-file-over="" uploader="uploader">-->
+            <!--Base drop zone-->
+        <!--</div>-->
+        <!--</div>-->
+        <form ng-submit="addPhotoToRecipe(photoName)">
+            <input type="file" class="inputfile" placeholder="Thumbnail Image" ng-model="recipePhoto">
+        </form>
 
-            <p><textarea class="inputtext" ng-model="recipe.description" placeholder="Recipe Description"></textarea></p>
-            <button ng-click="addRecipe()">Save Recipe</button>
+
+        <p><input class="inputtext" type="text" ng-model="recipe.name" placeholder="Recipe Name"></p>
+
+        <p><textarea class="inputtext" ng-model="recipe.directions" placeholder="Recipe Directions"></textarea></p>
+
+        <p><textarea class="inputtext" ng-model="recipe.description" placeholder="Recipe Description"></textarea></p>
+        <button ng-click="addRecipe()">Save Recipe</button>
 
         <!--<button class="btn btn-sm btn-success glyphicon glyphicon-plus" ng-click="addIngredientToRecipe(ingredientName)"></button>-->
     </div>
@@ -16,11 +39,12 @@
         <div class="col-md-4">
             <div>
                 <div class="title_med">Ingredients</div>
-                   <p>
-                    <form ng-submit="addIngredientToRecipe(ingredientName)">
-                        <input class="inputtext" placeholder="Ingredient" ng-model="ingredientName">
-                    </form>
-                    </p>
+                <p>
+
+                <form ng-submit="addIngredientToRecipe(ingredientName)">
+                    <input class="inputtext" placeholder="Ingredient" ng-model="ingredientName">
+                </form>
+                </p>
                 <ul class="editable">
                     <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}
                         <del ng-click="removeIngredient($index)">✖</del>
@@ -33,12 +57,13 @@
         <div class="col-md-4" id="filter">
             <div class="title_med"><p>Ingredient List</p></div>
             <ul class="editable">
-                    <li class="hvr-float" ng-click="addIngredientToRecipe(ingredient.name)" ng-repeat="ingredient in ingredients "> {{ ingredient.name }}
-                        <!--<add class="fa fa-check" ng-click="addIngredientToRecipe(ingredient.name)"></add>-->
-                    </li>
-                </ul>
-                <br>
-            </div>
+                <li class="hvr-float" ng-click="addIngredientToRecipe(ingredient.name)"
+                    ng-repeat="ingredient in ingredients "> {{ ingredient.name }}
+                    <!--<add class="fa fa-check" ng-click="addIngredientToRecipe(ingredient.name)"></add>-->
+                </li>
+            </ul>
+            <br>
         </div>
     </div>
+</div>
 </div>
